@@ -6,18 +6,20 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Login from "./Components/Login/Login";
 import Banner from "./Components/Home/Banner/Banner";
 import NotFound from "./Components/NotFound/NotFound";
+import Home from "./Components/Home/Home/Home";
+import AuthProvider from "./Context/AuthProvider";
 
 function App() {
   return (
-    <div className="App">
+    <AuthProvider className="App">
       <BrowserRouter>
         <Header />
         <Switch>
           <Route exact path="/">
-            <Banner />
+            <Home />
           </Route>
           <Route path="/home">
-            <Banner />
+            <Home />
           </Route>
           <Route path="/login">
             <Login></Login>
@@ -27,7 +29,7 @@ function App() {
           </Route>
         </Switch>
       </BrowserRouter>
-    </div>
+    </AuthProvider>
   );
 }
 
