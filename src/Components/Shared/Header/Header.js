@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import useAuth from "../../../Hooks/useAuth";
 import "./Header.css";
 
@@ -26,10 +27,18 @@ const Header = () => {
               <Nav.Link as={Link} to="/home">
                 Home
               </Nav.Link>
-              <Nav.Link href="#packages">Packages</Nav.Link>
-              <Nav.Link href="#sites">Sites</Nav.Link>
+              <Nav.Link as={HashLink} to="/home#packages">
+                Packages
+              </Nav.Link>
+              <Nav.Link as={HashLink} to="/home#sites">
+                Sites
+              </Nav.Link>
               {user.email ? (
                 <>
+                  <Nav.Link as={Link} to="/my-orders">
+                    My Orders
+                  </Nav.Link>
+
                   <Navbar.Text className="btn btn-success text-warning">
                     <FontAwesomeIcon icon={faUserAlt}></FontAwesomeIcon>{" "}
                     {user.displayName}
