@@ -24,7 +24,7 @@ const Sites = () => {
     return <Spinner animation="grow" variant="info" className="m-5 p-3" />;
   } else
     return (
-      <div style={divStyle} id="packages">
+      <div style={divStyle} id="packages" id="sites">
         <h2>
           <Badge bg="info" className="p-4">
             Sites

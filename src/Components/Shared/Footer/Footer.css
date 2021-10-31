@@ -1,0 +1,11 @@
+.footer {
+  background-color: black;
+  color: white;
+}
+
+.icon a {
+  text-decoration: none;
+  color: white;
+  font-size: 40px;
+  margin: 10px;
+}

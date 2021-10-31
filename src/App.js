@@ -11,11 +11,12 @@ import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import ManageAllOrders from "./Components/Orders/ManageAllOrders/ManageAllOrders";
 import MyOrders from "./Components/Orders/MyOrders/MyOrders";
 import AddService from "./Components/AddService/AddService";
+import Footer from "./Components/Shared/Footer/Footer";
 
 function App() {
   return (
     <AuthProvider>
-      <div className="App">
+      <div className="App d-flex flex-column min-vh-100">
         <BrowserRouter>
           <Header />
           <Switch>
@@ -44,6 +45,7 @@ function App() {
               <NotFound />
             </Route>
           </Switch>
+          <Footer />
         </BrowserRouter>
       </div>
     </AuthProvider>
