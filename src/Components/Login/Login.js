@@ -2,13 +2,20 @@ import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { useHistory, useLocation } from "react-router";
 import useAuth from "../../Hooks/useAuth";
 
 const Login = () => {
   const { user, signInUsingGoogle, logOut } = useAuth();
+  const location = useLocation();
+
+  const history = useHistory();
+  const redirect_uri = location.state?.from || "/";
 
   const handleGoogleSignIn = () => {
-    signInUsingGoogle();
+    signInUsingGoogle().then((res) => {
+      history.push(redirect_uri);
+    });
   };
 
   const handleLogOut = () => {

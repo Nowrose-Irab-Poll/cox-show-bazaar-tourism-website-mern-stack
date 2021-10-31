@@ -38,6 +38,12 @@ const Header = () => {
                   <Nav.Link as={Link} to="/my-orders">
                     My Orders
                   </Nav.Link>
+                  <Nav.Link as={Link} to="/manage-orders">
+                    Manage All Orders
+                  </Nav.Link>
+                  <Nav.Link as={Link} to="/add-order">
+                    Add A New Service
+                  </Nav.Link>
 
                   <Navbar.Text className="btn btn-success text-warning">
                     <FontAwesomeIcon icon={faUserAlt}></FontAwesomeIcon>{" "}

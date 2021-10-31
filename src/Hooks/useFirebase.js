@@ -7,26 +7,27 @@ import {
   signOut,
 } from "firebase/auth";
 import initializeAuthentication from "../Firebase/firebase.init";
+import { useHistory, useLocation } from "react-router";
 
 initializeAuthentication();
 
 const useFirebase = () => {
   const [user, setUser] = useState({});
 
+  const [isLoading, setIsLoading] = useState(true);
+
   const auth = getAuth();
 
   const googleProvider = new GoogleAuthProvider();
 
   const signInUsingGoogle = () => {
-    signInWithPopup(auth, googleProvider).then((result) => {
-      const user = result.user;
-      console.log(user);
-    });
+    return signInWithPopup(auth, googleProvider);
   };
 
   const logOut = () => {
     signOut(auth).then(() => {
       setUser({});
+      setIsLoading(false);
     });
   };
   useEffect(() => {
@@ -36,10 +37,12 @@ const useFirebase = () => {
       } else {
         setUser({});
       }
+      setIsLoading(false);
     });
   }, []);
   return {
     user,
+    isLoading,
     signInUsingGoogle,
     logOut,
   };
