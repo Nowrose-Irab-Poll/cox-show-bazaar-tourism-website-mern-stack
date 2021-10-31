@@ -1,21 +1,23 @@
 import Button from "@restart/ui/esm/Button";
 import React, { useEffect, useState } from "react";
 import { Badge, Modal, Table } from "react-bootstrap";
-import Order from "../Order/Order";
+import useAuth from "../../../Hooks/useAuth";
+import MyOrder from "../MyOrder/MyOrder";
 
-const ManageAllOrders = () => {
+const MyOrders = () => {
+  const { user } = useAuth();
   const [orders, setOrders] = useState([]);
   const [cancelId, setCancelId] = useState({});
-
-  useEffect(() => {
-    fetch("http://localhost:5000/orders")
-      .then((res) => res.json())
-      .then((data) => setOrders(data));
-  }, []);
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/orders/${user.email}`)
+      .then((res) => res.json())
+      .then((data) => setOrders(data));
+  }, []);
 
   const handleCancelConfirmation = (id) => {
     handleShow();
@@ -65,26 +67,30 @@ const ManageAllOrders = () => {
       </Modal>
       <h2>
         <Badge bg="success" className="p-4 m-5">
-          All Orders
+          My Orders
+        </Badge>
+        <br />
+        <Badge bg="danger" className="p-2 m-2">
+          Orders of {user.displayName}
         </Badge>
       </h2>
       <Table striped bordered hover>
         <thead>
           <tr>
             <th>Order ID</th>
-            <th>Name</th>
             <th>Package Name</th>
+            <th>Price</th>
             <th>Cancel</th>
           </tr>
         </thead>
         <tbody>
           {orders.map((order) => (
-            <Order
+            <MyOrder
               key={order._id}
               order={order}
               handleOrderCancel={handleOrderCancel}
               handleCancelConfirmation={handleCancelConfirmation}
-            ></Order>
+            ></MyOrder>
           ))}
         </tbody>
       </Table>
@@ -92,4 +98,4 @@ const ManageAllOrders = () => {
   );
 };
 
-export default ManageAllOrders;
+export default MyOrders;

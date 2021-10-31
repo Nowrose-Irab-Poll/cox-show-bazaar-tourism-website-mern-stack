@@ -1,9 +1,6 @@
-import Button from "@restart/ui/esm/Button";
 import React, { useEffect, useState } from "react";
-import { Modal } from "react-bootstrap";
-import { useHistory } from "react-router";
 
-const Order = ({ order, handleOrderCancel, handleCancelConfirmation }) => {
+const MyOrder = ({ order, handleOrderCancel, handleCancelConfirmation }) => {
   const [pack, setPack] = useState({});
 
   useEffect(() => {
@@ -12,12 +9,14 @@ const Order = ({ order, handleOrderCancel, handleCancelConfirmation }) => {
       .then((data) => setPack(data));
   }, []);
 
-  const { name, email, _id, packageId } = order;
+  const { name, email, _id, packageId, price } = order;
+
   return (
     <tr>
       <td>{_id}</td>
-      <td>{name}</td>
       <td>{pack.name}</td>
+      <td>{pack.price}</td>
+
       <td>
         <button
           className="btn btn-danger"
@@ -30,4 +29,4 @@ const Order = ({ order, handleOrderCancel, handleCancelConfirmation }) => {
   );
 };
 
-export default Order;
+export default MyOrder;

@@ -124,7 +124,7 @@ const PlaceOrder = () => {
             <input
               placeholder="Your Name"
               value={user.displayName}
-              {...register("name", { required: true, maxLength: 20 })}
+              {...register("name", { required: true, maxLength: 30 })}
             />
             <br />
             <input
@@ -136,7 +136,7 @@ const PlaceOrder = () => {
             <br />
             <input
               placeholder="Your Address"
-              {...register("address", { required: true, maxLength: 40 })}
+              {...register("address", { required: true, maxLength: 50 })}
             />
             <br />
             <input
