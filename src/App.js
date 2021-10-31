@@ -8,6 +8,7 @@ import Home from "./Components/Home/Home/Home";
 import AuthProvider from "./Context/AuthProvider";
 import PlaceOrder from "./Components/PlaceOrder/PlaceOrder";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
+import ManageAllOrders from "./Components/Orders/ManageAllOrders/ManageAllOrders";
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
             </Route>
             <PrivateRoute path="/place-order/:id">
               <PlaceOrder />
+            </PrivateRoute>
+            <PrivateRoute path="/manage-orders">
+              <ManageAllOrders />
             </PrivateRoute>
             <Route path="*">
               <NotFound />
