@@ -37,7 +37,7 @@ const PlaceOrder = () => {
 
   const handleConfirmSubmit = () => {
     order.packageId = pack._id;
-    fetch("http://localhost:5000/place-order", {
+    fetch("https://howling-fangs-58955.herokuapp.com/place-order", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -54,7 +54,7 @@ const PlaceOrder = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/packages/${id}`)
+    fetch(`https://howling-fangs-58955.herokuapp.com/packages/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setPack(data);

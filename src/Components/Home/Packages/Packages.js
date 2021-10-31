@@ -8,7 +8,7 @@ const Packages = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch("http://localhost:5000/packages")
+    fetch("https://howling-fangs-58955.herokuapp.com/packages")
       .then((res) => res.json())
       .then((data) => {
         setPackages(data);

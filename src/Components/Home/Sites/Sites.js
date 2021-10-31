@@ -8,7 +8,7 @@ const Sites = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch("http://localhost:5000/sites")
+    fetch("https://howling-fangs-58955.herokuapp.com/sites")
       .then((res) => res.json())
       .then((data) => setSites(data))
       .finally(() => {

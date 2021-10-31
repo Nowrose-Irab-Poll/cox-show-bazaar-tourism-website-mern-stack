@@ -14,7 +14,7 @@ const MyOrders = () => {
   const handleShow = () => setShow(true);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/orders/${user.email}`)
+    fetch(`https://howling-fangs-58955.herokuapp.com/orders/${user.email}`)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, []);
@@ -26,7 +26,7 @@ const MyOrders = () => {
 
   const handleOrderCancel = () => {
     handleClose();
-    fetch(`http://localhost:5000/orders/${cancelId}`, {
+    fetch(`https://howling-fangs-58955.herokuapp.com/orders/${cancelId}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

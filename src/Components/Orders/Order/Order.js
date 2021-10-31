@@ -7,7 +7,7 @@ const Order = ({ order, handleOrderCancel, handleCancelConfirmation }) => {
   const [pack, setPack] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/packages/${packageId}`)
+    fetch(`https://howling-fangs-58955.herokuapp.com/packages/${packageId}`)
       .then((res) => res.json())
       .then((data) => setPack(data));
   }, []);

@@ -8,7 +8,7 @@ const ManageAllOrders = () => {
   const [cancelId, setCancelId] = useState({});
 
   useEffect(() => {
-    fetch("http://localhost:5000/orders")
+    fetch("https://howling-fangs-58955.herokuapp.com/orders")
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, []);
@@ -24,7 +24,7 @@ const ManageAllOrders = () => {
 
   const handleOrderCancel = () => {
     handleClose();
-    fetch(`http://localhost:5000/orders/${cancelId}`, {
+    fetch(`https://howling-fangs-58955.herokuapp.com/orders/${cancelId}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
