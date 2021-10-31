@@ -1,5 +1,6 @@
+import Button from "@restart/ui/esm/Button";
 import React, { useEffect, useState } from "react";
-import { Badge, Table } from "react-bootstrap";
+import { Badge, Modal, Table } from "react-bootstrap";
 import Order from "../Order/Order";
 
 const ManageAllOrders = () => {
@@ -15,7 +16,7 @@ const ManageAllOrders = () => {
     <div>
       <h2>
         <Badge bg="success" className="p-4 m-5">
-          All Orders : {orders.length}
+          All Orders
         </Badge>
       </h2>
       <Table striped bordered hover>
